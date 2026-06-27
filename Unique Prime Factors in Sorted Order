@@ -1,0 +1,38 @@
+Difficulty: EasyAccuracy: 30.47%Submissions: 83K+Points: 2Average Time: 15m
+Given a number n. Find its unique prime factors in increasing order.
+
+Examples :
+
+Input: n = 100
+Output: [2, 5]
+Explanation: Unique prime factors of 100 are 2 and 5.
+Input: n = 60
+Output: [2, 3, 5]
+Explanation: Prime factors of 60 are 2, 2, 3, 5. Unique prime factors are 2, 3 and 5.
+Constraints:
+1 ≤ n ≤ 106
+
+
+
+
+class Solution {
+    public static ArrayList<Integer> primeFac(int n) {
+        // code here
+        ArrayList<Integer> nums = new ArrayList<Integer>();
+        boolean[] isPrime = new boolean[n+1];
+        Arrays.fill(isPrime,true);
+        for(int i=2;i*i<=n;i++){
+            if(isPrime[i]){
+                for(int j=i*i;j<=n;j+=i){
+                    isPrime[j]=false;
+                }
+            }
+        }
+        for(int i=2;i<=n;i++){
+            if(isPrime[i] && n%i==0){
+                nums.add(i);
+            }
+        }
+        return nums;
+    }
+}
