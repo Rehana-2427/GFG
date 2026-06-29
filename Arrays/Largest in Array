@@ -1,3 +1,16 @@
+Expected Complexities
+Time Complexity: O(n)
+Auxiliary Space: O(1)
+
+
+Company Tags
+Infosys
+Oracle
+Wipro
+Morgan Stanley
+
+
+
 Given an array arr[]. The task is to find the largest element and return it.
 
 Examples:
