@@ -1,0 +1,50 @@
+Problem statement
+You’re given an array of ‘N’ integers. Your task is to find all those array elements which contain 1, 2, and 3 in their digits and then print them in ascending order. If no element has 1,2 and 3 in its digits, then print ‘-1’.
+
+Example :
+12345 satisfies the condition since it has all ‘1’, ‘2’, and ‘3’ in its digits, but 124 doesn’t satisfy the condition since it only has ‘1’ and ‘2’ but not ‘3’ in its digits.
+Detailed explanation ( Input/output format, Notes, Images )
+Constraints :
+1 <= T <= 5
+1 <=  N <= 10^5
+1 <= arr[i] <= 10^9    
+
+Time limit: 1 sec
+Sample Input 1 :
+1 
+5
+123 1234 12345 1245 1230
+Sample Output 1 :
+123 1230 1234 12345
+Explanation For Sample Input 1 :
+Out of the given array elements, only 1245 doesn’t have the digit ‘3’. Hence we’ll print all other elements in ascending order.
+Sample Input 2 :
+2
+4
+321 123 131 432
+3
+124 324 134
+Sample Output 2 :
+123 321
+-1
+
+
+
+import java.util.* ;
+import java.io.*; 
+import java.util.ArrayList;
+
+public class Solution {
+	public static ArrayList<Integer> containsNumber(int n, ArrayList<Integer> arr) {
+		// Write your code here.
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		for(int num:arr){
+			String s = String.valueOf(num);
+			if(s.contains("1")&&s.contains("2")&&s.contains("3")){
+				list.add(num);
+			}
+		}
+		 Collections.sort(list);
+		return list;
+	}
+}
