@@ -94,3 +94,49 @@ public class Solution {
 	}
 }
 
+
+
+
+logic : 
+
+Every time you score runs, they are written on a paper.
+
+Initially, Track Record [] Nothing is there.
+
+This paper always stores the history of valid scores.
+
+A Stack behaves exactly like this paper because we always work with the latest score.
+
+Why Stack?
+
+Which score do all operations use?
+
+C → Previous score
+
+D → Previous score
+
++ → Previous two scores
+
+Everything depends on the latest score(s).
+
+A Stack is perfect because
+
+peek()  -> Last score
+
+pop()   -> Remove last score
+
+push()  -> Add new score
+
+Think of the Stack as a Notebook 
+Initially - []
+Operation 1 - 2  value  - I have  Add score 2. (Notebook [2])
+Operation 2 - 3  value  - I have  Add score 3. (Notebook [2,3])
+Operation 3 - +  operator -  I have  Add score (2+3) previsou elements. (Notebook [2,3,5])
+Operation 4 - D  value -  I have  Double previous score - 5 => 10 . (Notebook [2,3,5,10])
+Operation 5 - C value  - Cancel previous score - Remove 10 - (Notebook[2,3,5])
+
+Now understand every if-condition 
+Case 1 - if(s.equals("C"))  -Cancel last score. 
+			stack.pop(); 
+Case 2 - else if(s.equals("D")) - Double previous score.
+			stack.push(stack.peek()*2);
